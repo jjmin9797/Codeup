@@ -1,0 +1,136 @@
+num = input()
+n,m,k = num.split(' ')
+n = int(n)
+m = int(m)
+k = int(k)
+
+pan = n*m
+base = 1
+base_2 = 0
+base_3 = 0
+k_1 = k
+while base != k:
+
+    if k == 0 :
+        break
+    if k_1-m > 0 :
+        k_1 = k_1 - m
+        base_2 = base_2 + 1
+        base = base + m
+        continue
+    if k_1-m < 0 :
+        while k_1 != 0 :
+            k_1 = k_1 -1
+            base_3 = base_3 + 1
+            base = base + 1
+        break
+base_3 = base_3 - 1
+mom = base_2 + base_3
+
+
+mom_1 = 1
+for i in range(0,mom):
+    mom_1 = mom_1*(i+1)
+#mom_1이 진짜 분모
+
+dad_1 = 1
+for i in range(0,base_2):
+    dad_1 = dad_1 * (i+1)
+
+dad_2 = 1
+for i in range(0,base_3):
+    dad_2 = dad_2 * (i+1)
+
+real_dad = dad_1 * dad_2
+
+key_1 = mom_1 // real_dad
+
+
+
+####################################################################
+
+two_base = k
+two_base_1 = 0
+two_base_2 = 0
+two_pan = pan
+#pan
+while two_base != pan :
+
+    if k == 0 :
+        break
+    if two_pan - m > k :
+        two_base_1 = two_base_1 + 1
+        two_base = two_base + m
+        two_pan = two_pan - m
+        continue
+    if two_pan - m < k :
+        while two_base != pan :
+            two_base = two_base + 1
+            two_base_2 = two_base_2 + 1
+            two_pan = two_pan - 1
+        break
+
+two_mom = two_base_1 + two_base_2
+
+two_mom_1 = 1
+for i in range(0,two_mom):
+    two_mom_1 = two_mom_1*(i+1)
+#two_mom_1이 진짜 분모
+
+two_dad_1 = 1
+for i in range(0,two_base_1):
+    two_dad_1 = two_dad_1 * (i+1)
+
+two_dad_2 = 1
+for i in range(0,two_base_2):
+    two_dad_2 = two_dad_2 * (i+1)
+
+two_real_dad = two_dad_1 * two_dad_2
+
+key_2 = two_mom_1 // two_real_dad
+if key_1 == 0 :
+    key_1 = 1
+if key_2 == 0 :
+    key_2 = 1
+real_key = key_1 * key_2
+####################################
+if k == 0 :
+    th_base = 1
+    th_base_1 = 0
+    th_base_2 = 0
+    th_pan = pan
+
+
+    while th_base != pan :
+
+        if th_pan-m > 0 :
+            th_pan = th_pan - m
+            th_base_1 = th_base_1 + 1
+            th_base = th_base + m
+            continue
+
+        if th_pan-m <= 0 :
+            while th_base != pan:
+                th_pan = th_pan - 1
+                th_base_2 = th_base_2 + 1
+                th_base = th_base + 1
+            break
+    th_mom = th_base_1 + th_base_2
+    th_mom_1 = 1
+    for i in range(0, th_mom):
+        th_mom_1 = th_mom_1 * (i + 1)
+    # th_mom_1이 진짜 분모
+
+    th_dad_1 = 1
+    for i in range(0, th_base_1):
+        th_dad_1 = th_dad_1 * (i + 1)
+
+    th_dad_2 = 1
+    for i in range(0, th_base_2):
+        th_dad_2 = th_dad_2 * (i + 1)
+
+    th_real_dad = th_dad_1 * th_dad_2
+
+    real_key = th_mom_1 // th_real_dad
+
+print(real_key)
