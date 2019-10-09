@@ -1,0 +1,25 @@
+a = input()
+d1,d2 = a.split(' ')
+d1 = int(d1)
+d2 = int(d2)
+
+lists = [0]
+
+for i in range(d1,d2+1):
+    gak = 360 // i
+    for x in range(1,i):
+        jari = gak * x
+        lists.append(jari)
+lists.sort()
+giri = len(lists)
+base = 0
+base_2 = 0
+for i in range(0,giri):
+    base = lists[i]
+    if i == giri-1 :
+        break
+    if base == lists[i+1]:
+        base_2 = base_2 + 1
+
+key = len(lists)-base_2
+print(key)
