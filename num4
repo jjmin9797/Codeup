@@ -1,0 +1,16 @@
+a = int(input())
+lists = []
+for i in range(0,a):
+    ace = input()
+    b,c = ace.split(' ')
+    b = int(b)
+    c = int(c)
+
+    d = c%b
+    lists.append(d)
+
+leng = len(lists)
+result = 0
+for x in range(0,leng):
+    result = result + lists[x]
+print(result)
