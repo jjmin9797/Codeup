@@ -1,0 +1,59 @@
+ace = input()
+
+n,k = ace.split(' ')
+
+n = int(n)
+k = int(k)
+stu_list = []
+boy_list = []
+girl_list = []
+for i in range(0,n):
+    ace = input()
+
+    stu_list.append(ace)
+
+for x in range(0,n):
+    if stu_list[x][0] == '1' :
+        boy_list.append(stu_list[x])
+
+    else :
+        girl_list.append(stu_list[x])
+
+boy_list_2 = []
+girl_list_2 = []
+for i in range(0,len(boy_list)):
+    for x in range(1,7):
+        if boy_list[i][2] == str(x) :
+            boy_list_2.append(x)
+
+for i in range(0,len(girl_list)):
+    for x in range(1,7):
+        if girl_list[i][2] == str(x) :
+            girl_list_2.append(x)
+
+
+bang_boy_list = []
+bang_girl_list = []
+for i in range(1,7):
+    num = boy_list_2.count(i)
+    num_2 = girl_list_2.count(i)
+    bang_boy_list.append(num)
+    bang_girl_list.append(num_2)
+real_bang_1 = 0
+real_bang_2 = 0
+for i in range(0,len(bang_boy_list)):
+    if bang_boy_list[i] % k == 0 :
+        real_bang_1 = real_bang_1 +(bang_boy_list[i] // k) 
+    
+    else :
+        real_bang_1 = real_bang_1 + (bang_boy_list[i] // k ) + 1
+
+for i in range(0, len(bang_girl_list)):
+    if bang_girl_list[i] % k == 0:
+        real_bang_2 = real_bang_2 + (bang_girl_list[i] // k)
+
+    else:
+        real_bang_2 = real_bang_2 + (bang_girl_list[i] // k) + 1
+
+key = real_bang_1 + real_bang_2
+print(key)
