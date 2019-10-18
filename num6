@@ -1,0 +1,46 @@
+a = input()
+
+N,M = a.split(' ')
+No_list = []
+M = int(M)
+N = int(N)
+b = input()
+
+No_list = b.split(' ')
+
+dal= []
+
+for i in range(0,N):
+    dal.append('0')
+
+for i in range(0,M):
+    im = No_list[i]
+    im = int(im)
+    dal[im-1] = '1'
+
+dal_2 = (''.join(dal))
+dal_3 = dal_2.split('1')
+
+dal_4 = []
+for i in range(0,len(dal_3)):
+    dal_4.append(len(dal_3[i]))
+day5 = 0
+day3 = 0
+day1 = 0
+cP = 0
+for i in range(0,len(dal_4)):
+    insult = dal_4[i] // 5
+    day5 = day5 + insult
+    cP = (insult * 2) + cP
+
+    insult_2 = (dal_4[i]-(insult*5)) // 3
+    day3 = day3 + insult_2
+    cP = cP + (insult_2)
+
+    insult_3 = (dal_4[i]-(insult*5)-(insult_2*3))//1
+    day1 = day1 + insult_3
+
+print(day1,day3,day5,cP)
+print(dal_4)
+key = day1*10000 + day3*25000 + day5 * 37000 - ((cP//3) * 10000)
+print(key)
