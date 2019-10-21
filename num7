@@ -1,0 +1,27 @@
+N = int(input())
+key = []
+for i in range(0,N):
+    list_AA = input()
+    list_BB = input()
+    list_A = list_AA.split(' ')
+    list_B = list_BB.split(' ')
+    del list_A[0]
+    del list_B[0]
+
+    for x in range(4,0,-1):
+        score_A = list_A.count(str(x))
+        score_B = list_B.count(str(x))
+        if score_A > score_B :
+            key.append('A')
+            break
+        if score_A < score_B :
+            key.append('B')
+            break
+
+        if x == 1 and score_A == score_B :
+            key.append('D')
+            break
+        else :
+            continue
+for i in range(0,N):
+    print(key[i])
