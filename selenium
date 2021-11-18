@@ -1,0 +1,42 @@
+from selenium import webdriver
+import time
+from bs4 import BeautifulSoup
+import requests
+from selenium.webdriver.common.keys import Keys
+import pyperclip
+
+uid = ''
+upw = ''
+search = "뉴스"
+driver = webdriver.Chrome('C:\chromedriver\chromedriver.exe')
+url = 'https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com'
+driver.get(url)
+
+time.sleep(1)
+
+tag_id = driver.find_element_by_name('id')
+tag_pw = driver.find_element_by_name('pw')
+
+tag_id.click()
+pyperclip.copy(uid)
+tag_id.send_keys(Keys.CONTROL,'v')
+time.sleep(1)
+
+tag_pw.click()
+pyperclip.copy(upw)
+tag_pw.send_keys(Keys.CONTROL, 'v')
+time.sleep(1)
+
+login_btn = driver.find_element_by_id('log.login')
+login_btn.click()
+time.sleep(2)
+
+
+tag_query = driver.find_element_by_name('query')
+tag_query.click()
+pyperclip.copy(search)
+tag_query.send_keys(Keys.CONTROL,'v')
+
+search_btn = driver.find_element_by_id('search_btn')
+search_btn.click()
+time.sleep(2)
