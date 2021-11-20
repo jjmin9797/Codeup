@@ -1,0 +1,31 @@
+import random
+
+gang = 1
+money = 10000
+
+while True :
+  print("현재 강화 수 : ",gang)
+  print("돈 : ",money)
+  print("1. 강화하기")
+  print("2. 그만하기")
+  user = int(input("선택하세요 : "))
+
+  if user == 1 and 1 <= gang <=10:
+    money = money - 100
+    a = random.randint(1,10)
+    if a == 1 :
+      print("강화 실패")
+      gang = gang - 1
+      continue
+    else :
+      print("강화 성공")
+      gang = gang + 1
+      continue
+  elif user == 1 and 11 <= gang <= 30 :
+    money = money - 100
+    a = random.randint(1,2)
+    if a == 1 :
+      gang = gang + 1
+    else :
+      gang = gang - 1
+    
