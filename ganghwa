@@ -7,7 +7,7 @@ while True :
   print("현재 강화 수 : ",gang)
   print("돈 : ",money)
   print("1. 강화하기")
-  print("2. 그만하기")
+  print("2. 판매하기")
   user = int(input("선택하세요 : "))
 
   if user == 1 and 1 <= gang <=10:
@@ -28,4 +28,11 @@ while True :
       gang = gang + 1
     else :
       gang = gang - 1
-    
+  
+  elif user == 2 :
+    if 1 <= gang <= 10:
+      print("판매 불가")
+    elif 11 <= gang <= 20 :
+      money = money + 1000 + (gang * 300)
+      gang = 1
+      continue
