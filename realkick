@@ -1,0 +1,157 @@
+import turtle
+import random
+#골대 그려주는 친구 만들기
+turtle.bgcolor("green")
+ddaggari = turtle.Turtle()
+ddaggari.speed(0)
+ddaggari.hideturtle()
+ddaggari.pensize(20)
+ddaggari.penup()
+ddaggari.goto(-250,150)
+ddaggari.pendown()
+ddaggari.goto(-250,325)
+ddaggari.goto(250,325)
+ddaggari.goto(250,150)
+ddaggari_y = 150
+ddaggari.pensize(2)
+
+for i in range(16):
+    ddaggari.goto(-250,ddaggari_y)
+    ddaggari_y += 10
+    ddaggari.goto(-250, ddaggari_y )
+    ddaggari.goto(250, ddaggari_y )
+ddaggari_x = -250
+for i in range(50):
+    ddaggari.goto(ddaggari_x,310)
+    ddaggari.goto(ddaggari_x,150)
+    ddaggari.goto(ddaggari_x,310 )
+    ddaggari_x += 10
+ddaggari.pencolor("white")
+ddaggari.penup()
+ddaggari.goto(-250,150)
+ddaggari.pendown()
+ddaggari.goto(-500,-150)
+ddaggari.goto(500,-150)
+ddaggari.goto(250,150)
+
+keeper = turtle.Turtle()
+keeper.speed(0)
+keeper.penup()
+keeper.goto(0,200)
+keeper.shape("turtle")
+keeper.turtlesize(7,7,4)
+keeper.left(90)
+keeper.fillcolor("red")
+
+
+
+
+kicker = turtle.Turtle()
+kicker.shape("circle")
+kicker.penup()
+kicker.goto(0,-150)
+kicker.fillcolor("white")
+kicker.turtlesize( 4,4,8)
+
+a = random.randint(1,4)
+if a == 1 :
+    com = "왼쪽"
+elif a == 2 :
+    com = "오른쪽"
+elif a == 3 :
+    com = "중앙"
+elif a == 4 :
+    com = "슈퍼방어"
+    
+ans = input("어디로 차실?: (왼쪽,중앙,오른쪽)")
+#0,-150
+if ans == "왼쪽" :
+    kicker.speed(4)
+    kicker.goto(-160,250)
+elif ans == "오른쪽" :
+    kicker.speed(4)
+    kicker.goto(160,250)
+elif ans == "중앙" :
+    kicker.speed(4)
+    kicker.goto(0,250)
+elif ans == "번개슛" :
+    kicker.speed(7)
+
+    kicker.fillcolor("yellow")
+    bun_y = -150
+    for i in range(40):
+        kicker.goto(-150,bun_y)
+        kicker.goto(150,bun_y)
+        bun_y += 10
+elif ans == "마구" :
+    kicker.speed(0)
+    color_check = True
+    for i in range(100):
+        magu_x = random.randint(-250,250)
+        magu_y = random.randint(-250,250)
+        if color_check == True :
+            kicker.fillcolor("red")
+            kicker.write("못잡겠쥐",font = ("",20))
+            color_check = False
+        else :
+            kicker.fillcolor("blue")
+            kicker.write("어림없쥐",font = ("",20))
+            color_check = True
+        kicker.goto(magu_x,magu_y)
+        
+    kicker.goto(0,250)
+
+if com == "왼쪽" :
+    keeper.goto(-150,200)
+    for i in range(100) :
+        keeper.left(45)
+elif com == "오른쪽" :
+    keeper.goto(150,200)
+    for i in range(100) :
+        keeper.left(45)
+elif com == "중앙" :
+    keeper.goto(0,250)
+    keeper.goto(0,200)
+    for i in range(100) :
+        keeper.left(45)
+elif com == "슈퍼방어" :
+    superList = []
+    sup_y = -150
+    for i in range(10) :
+        sup = turtle.Turtle()
+        sup.speed(0)
+        sup.penup()
+        sup.goto(sup_y,200)
+        sup.shape("turtle")
+        sup.turtlesize(7,7,4)
+        sup.left(90)
+        sup.fillcolor("red")
+        superList.append(sup)
+        sup_y += 35
+
+if com == ans :
+    ddaggari.penup()
+    ddaggari.goto(0,350)
+    ddaggari.write("막혀버렸죠 아무고토못하쥬",font = ("",20))
+
+elif com  == "슈퍼방어" :
+    ddaggari.penup()
+    ddaggari.goto(0,350)
+    ddaggari.write("막혀버렸죠 아무고토못하쥬",font = ("",20))
+
+else :
+    ddaggari.penup()
+    ddaggari.goto(0,350)
+    ddaggari.write("골!!!!!!!!!!!!",font = ("",20))
+
+
+
+
+
+
+
+
+
+
+
+
